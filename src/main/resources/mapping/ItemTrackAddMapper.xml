@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yidong.mapper.ItemTrackAddMapper" >
+  <resultMap id="BaseResultMap" type="com.yidong.model.ItemTrackAdd" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="old_title" property="oldTitle" jdbcType="VARCHAR" />
+    <result column="old_evaluate" property="oldEvaluate" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="sign" property="sign" jdbcType="VARCHAR" />
+    <result column="track_id" property="trackId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, old_title, old_evaluate, time, content, sign, track_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yd_item_track_add
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yd_item_track_add
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yidong.model.ItemTrackAdd" >
+    insert into yd_item_track_add (id, old_title, old_evaluate, 
+      time, content, sign, 
+      track_id)
+    values (#{id,jdbcType=INTEGER}, #{oldTitle,jdbcType=VARCHAR}, #{oldEvaluate,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}, 
+      #{trackId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yidong.model.ItemTrackAdd" >
+    insert into yd_item_track_add
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oldTitle != null" >
+        old_title,
+      </if>
+      <if test="oldEvaluate != null" >
+        old_evaluate,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="sign != null" >
+        sign,
+      </if>
+      <if test="trackId != null" >
+        track_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oldTitle != null" >
+        #{oldTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="oldEvaluate != null" >
+        #{oldEvaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null" >
+        #{sign,jdbcType=VARCHAR},
+      </if>
+      <if test="trackId != null" >
+        #{trackId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yidong.model.ItemTrackAdd" >
+    update yd_item_track_add
+    <set >
+      <if test="oldTitle != null" >
+        old_title = #{oldTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="oldEvaluate != null" >
+        old_evaluate = #{oldEvaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null" >
+        sign = #{sign,jdbcType=VARCHAR},
+      </if>
+      <if test="trackId != null" >
+        track_id = #{trackId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yidong.model.ItemTrackAdd" >
+    update yd_item_track_add
+    set old_title = #{oldTitle,jdbcType=VARCHAR},
+      old_evaluate = #{oldEvaluate,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      sign = #{sign,jdbcType=VARCHAR},
+      track_id = #{trackId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

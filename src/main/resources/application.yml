@@ -1,0 +1,64 @@
+spring:
+  profiles: development
+server:
+  port: 8443
+  ssl:
+      key-store: classpath:guohanghuang.cn.jks
+      key-store-password: _huang3116004636
+      key-store-type: JKS
+      key-alias: guohanghuang.cn
+      protocol: TLS
+      enabled: true
+tomcat:
+   protocol-header-https-value: https
+
+---
+spring:
+  profiles: production
+
+server:
+  port: 8080
+  ssl:
+    enabled: false
+---
+spring:
+    profiles:
+      active: production
+    datasource:
+        url: jdbc:mysql://localhost:3306/gdut_fund?useSSL=false
+        username: root
+        password: 123456
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    jackson:
+        serialization:
+          INDENT_OUTPUT: true
+
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.yidong.model
+
+# JWT
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "
+
+

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yidong.mapper.ItemTrackMapper" >
+  <resultMap id="BaseResultMap" type="com.yidong.model.ItemTrack" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="research" property="research" jdbcType="VARCHAR" />
+    <result column="team" property="team" jdbcType="VARCHAR" />
+    <result column="team_leader" property="teamLeader" jdbcType="VARCHAR" />
+    <result column="b_expert" property="bExpert" jdbcType="VARCHAR" />
+    <result column="s_expert" property="sExpert" jdbcType="VARCHAR" />
+    <result column="advice" property="advice" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="apply_field" property="applyField" jdbcType="VARCHAR" />
+    <result column="old_apply" property="oldApply" jdbcType="VARCHAR" />
+    <result column="apply_year" property="applyYear" jdbcType="VARCHAR" />
+    <result column="join_year" property="joinYear" jdbcType="VARCHAR" />
+    <result column="major_content" property="majorContent" jdbcType="VARCHAR" />
+    <result column="sci_first_count" property="sciFirstCount" jdbcType="VARCHAR" />
+    <result column="sci_second_count" property="sciSecondCount" jdbcType="VARCHAR" />
+    <result column="ei_count" property="eiCount" jdbcType="VARCHAR" />
+    <result column="invent_count" property="inventCount" jdbcType="VARCHAR" />
+    <result column="invent_accredit_count" property="inventAccreditCount" jdbcType="VARCHAR" />
+    <result column="utility_count" property="utilityCount" jdbcType="VARCHAR" />
+    <result column="utility_accredit_count" property="utilityAccreditCount" jdbcType="VARCHAR" />
+    <result column="situation" property="situation" jdbcType="VARCHAR" />
+    <result column="team_basic" property="teamBasic" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yidong.model.ItemTrack" >
+    insert into yd_item_track (id, name, department, 
+      telephone, email, research, 
+      team, team_leader, b_expert, 
+      s_expert, advice, user_id, 
+      title, apply_field, old_apply, 
+      apply_year, join_year, major_content, 
+      sci_first_count, sci_second_count, ei_count, 
+      invent_count, invent_accredit_count, utility_count, 
+      utility_accredit_count, situation, team_basic
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{research,jdbcType=VARCHAR}, 
+      #{team,jdbcType=VARCHAR}, #{teamLeader,jdbcType=VARCHAR}, #{bExpert,jdbcType=VARCHAR}, 
+      #{sExpert,jdbcType=VARCHAR}, #{advice,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{applyField,jdbcType=VARCHAR}, #{oldApply,jdbcType=VARCHAR}, 
+      #{applyYear,jdbcType=VARCHAR}, #{joinYear,jdbcType=VARCHAR}, #{majorContent,jdbcType=VARCHAR}, 
+      #{sciFirstCount,jdbcType=VARCHAR}, #{sciSecondCount,jdbcType=VARCHAR}, #{eiCount,jdbcType=VARCHAR}, 
+      #{inventCount,jdbcType=VARCHAR}, #{inventAccreditCount,jdbcType=VARCHAR}, #{utilityCount,jdbcType=VARCHAR}, 
+      #{utilityAccreditCount,jdbcType=VARCHAR}, #{situation,jdbcType=VARCHAR}, #{teamBasic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yidong.model.ItemTrack" >
+    insert into yd_item_track
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="research != null" >
+        research,
+      </if>
+      <if test="team != null" >
+        team,
+      </if>
+      <if test="teamLeader != null" >
+        team_leader,
+      </if>
+      <if test="bExpert != null" >
+        b_expert,
+      </if>
+      <if test="sExpert != null" >
+        s_expert,
+      </if>
+      <if test="advice != null" >
+        advice,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="applyField != null" >
+        apply_field,
+      </if>
+      <if test="oldApply != null" >
+        old_apply,
+      </if>
+      <if test="applyYear != null" >
+        apply_year,
+      </if>
+      <if test="joinYear != null" >
+        join_year,
+      </if>
+      <if test="majorContent != null" >
+        major_content,
+      </if>
+      <if test="sciFirstCount != null" >
+        sci_first_count,
+      </if>
+      <if test="sciSecondCount != null" >
+        sci_second_count,
+      </if>
+      <if test="eiCount != null" >
+        ei_count,
+      </if>
+      <if test="inventCount != null" >
+        invent_count,
+      </if>
+      <if test="inventAccreditCount != null" >
+        invent_accredit_count,
+      </if>
+      <if test="utilityCount != null" >
+        utility_count,
+      </if>
+      <if test="utilityAccreditCount != null" >
+        utility_accredit_count,
+      </if>
+      <if test="situation != null" >
+        situation,
+      </if>
+      <if test="teamBasic != null" >
+        team_basic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="research != null" >
+        #{research,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null" >
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="teamLeader != null" >
+        #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="bExpert != null" >
+        #{bExpert,jdbcType=VARCHAR},
+      </if>
+      <if test="sExpert != null" >
+        #{sExpert,jdbcType=VARCHAR},
+      </if>
+      <if test="advice != null" >
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="applyField != null" >
+        #{applyField,jdbcType=VARCHAR},
+      </if>
+      <if test="oldApply != null" >
+        #{oldApply,jdbcType=VARCHAR},
+      </if>
+      <if test="applyYear != null" >
+        #{applyYear,jdbcType=VARCHAR},
+      </if>
+      <if test="joinYear != null" >
+        #{joinYear,jdbcType=VARCHAR},
+      </if>
+      <if test="majorContent != null" >
+        #{majorContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sciFirstCount != null" >
+        #{sciFirstCount,jdbcType=VARCHAR},
+      </if>
+      <if test="sciSecondCount != null" >
+        #{sciSecondCount,jdbcType=VARCHAR},
+      </if>
+      <if test="eiCount != null" >
+        #{eiCount,jdbcType=VARCHAR},
+      </if>
+      <if test="inventCount != null" >
+        #{inventCount,jdbcType=VARCHAR},
+      </if>
+      <if test="inventAccreditCount != null" >
+        #{inventAccreditCount,jdbcType=VARCHAR},
+      </if>
+      <if test="utilityCount != null" >
+        #{utilityCount,jdbcType=VARCHAR},
+      </if>
+      <if test="utilityAccreditCount != null" >
+        #{utilityAccreditCount,jdbcType=VARCHAR},
+      </if>
+      <if test="situation != null" >
+        #{situation,jdbcType=VARCHAR},
+      </if>
+      <if test="teamBasic != null" >
+        #{teamBasic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
